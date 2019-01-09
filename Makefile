@@ -29,4 +29,6 @@ clean:
 	$(DUNE) clean
 	rm -rf _build graphql_ppx.exe tests_bucklescript/lib tests_apollo/lib
 
+postinstall: build
+
 .PHONY: build test only-test clean buildall
