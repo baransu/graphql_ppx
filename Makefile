@@ -29,22 +29,4 @@ clean:
 	$(DUNE) clean
 	rm -rf _build graphql_ppx.exe tests_bucklescript/lib tests_apollo/lib
 
-postinstall:
-	# prepare folder
-	rm -rf bin
-	mkdir bin
-
-	# build OSX
-	./ci/before_script_osx.sh
-	./ci/build_script_osx.sh
-	mv graphql_ppx.exe bin/graphql_ppx-darwin-x64.exe
-
-	# build Linux
-	./ci/before_script_linux.sh
-	./ci/build_script_linux.sh
-	mv graphql_ppx.exe bin/graphql_ppx-linux-x64.exe
-
-
-	node copyPlatformBinaryInPlace.js
-
 .PHONY: build test only-test clean buildall

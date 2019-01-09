@@ -10,7 +10,7 @@
     "send-introspection-query": "./sendIntrospectionQuery.js"
   },
   "scripts": {
-    "postinstall": "make postinstall"
+    "postinstall": "node copyPlatformBinaryInPlace.js"
   },
   "devDependencies": {
     "@glennsl/bs-jest": "^0.4.5",
