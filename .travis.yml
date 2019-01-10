@@ -58,9 +58,8 @@ jobs:
       deploy:
         provider: npm
         email: tomaszcichocinski@gmail.com
-        skip_cleanup: true
         api_key:
-          secure: nXJwd55igA9oCipVoE3MIRVyBZRqSd4P40jvAgh+Gq760pcrCMok48COLDH2VylFlzBtdqnK5c9x3iypZAx7hnEIQzAfj6DEeUakNjvk5tqJqUawGs8yEhGLlj28eqQribvL92fXp5rgFvDWNOddFgV7H9fXowdYKy4tg31ikkzOO7iEP3/9UTE9BCgkyOqY3TNz5ST/qhyf9aANhdavJymmSrM8W7x2IWxvzAR1R7q4yTn6jXqtqwdNOURCvl9rP8EhMWrUBi9yXTv2MbJocMxbw3Yy0xPcATOWipor1U5+4cfd+N5Ezbkn5uC7/FDmR2mXuOliA9ttjPx5IQoC4TWL/Ra82ZVBVSGVlDXBhHC7K/DGmELqwUs6G8kfsir3zZk4bhREplvxpCDrGaO9s91x9Svxpi9VgEA96v1ENCpbmXSZ9js+k7CIo9njTWDkkmIn7G/0giQdd25OtuF0+2DmSQHyYtfNlCISCl22q1HOd6VjyG9NFEKCNRmAPGe89oHrxl3OLWkh7ZLRAhTN/H9lDxYHzaeLK/Oyc9voxfUbzA3GFaNDr69+Fmczw+6rjxLT21Ig/CFAEN64a2AuFUIEJ6iGu6L+1U850dSHrP+ee7VIUZdxxWfMzS6Zf0uKGtBL3wyRt1dXiklWlJlBXdy4OAwqYsSJP80ebvoxKH0=
+          secure: Y1rI99NKIJ88vBWjJRFU/tsvY5t+ShAUi/hEx4Qzv5sEdhWtxbInqTjG5g4KtY1n0YXiyVmjF2H1HkK+UOUqE/gd98ZICUHQjgWBZ4WcRaQHVBqrQ9aCxVjHPHpLiEbyg15cwWBg5BJW18D6P7J9od+Ej9uGtcLruU4FIL7byfGbNsL6w1WjNuh/wc2A8Ht2mOVSoRqnuf0S9aWO5JVjapdqMmYi2SP23XK4yBR+ScdMgmzs7gNVtyNp1Yy/SzXwu3Tb6s8YjhpHz4szuCQ3Dgo2+9IDtce2yIOVM8W2JhoUqN1VALqCZeiLPvhrKc66jS9ZDvzOPcPX697y+EcceLQx3PYrDobIhssDbwYfj+B9ezkT9DERivMGtZ4xN/VzoTYeADWOUZunp5mod1uKHQkeY1vP+XeiZ3udkcWTr+T6epBTnF8QOx4QMuQ0VqshTwPCmeLmbub9eM2QQopoBHJ4ZdnESGZwtn71Jh7BAZtzRDKhp4NLh3I5mZQmfPpL093/RIGD8zp7mVUrhY0UMK4ovRtPXTedhf2toKcfXPzjBtbKFoDOLaloVSaIqSSSn0NTb7xr4L8DvRv7tMFJzMSYBgyjyApAMW6x3UD6BzDWJGmAdS3cOpaDCgJpPD4qOlmqvtgeQRxO9zHTE35lW5WRGxXfcoy/nwW0qeVJYDQ=
         on:
           tags: true
           repo: baransu/graphql_ppx
