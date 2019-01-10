@@ -6,7 +6,7 @@ if [ -z "$TRAVIS_TAG" ]; then
 fi
 
 CURL="curl -ifs"
-BASE_URL=https://github.com/mhallin/graphql_ppx/releases/download/$TRAVIS_TAG/graphql_ppx-
+BASE_URL=https://github.com/baransu/graphql_ppx/releases/download/$TRAVIS_TAG/graphql_ppx-
 START_TIME=$(date "+%s")
 
 ## Wait at most 30 minutes for all platform binaries to be ready
