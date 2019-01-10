@@ -35,7 +35,7 @@ deploy:
 
 jobs:
   include:
-    - stage: Wait for Windows binaries to become available
+    - stage: Wait for binaries to become available
       addons:
         apt:
           sources: []

@@ -11,7 +11,8 @@ START_TIME=$(date "+%s")
 
 ## Wait at most 30 minutes for all platform binaries to be ready
 
-for platform in linux-x64 darwin-x64 win-x64 win-x86; do
+# win-x64 win-x86 - disable windows for now
+for platform in linux-x64 darwin-x64; do
     echo Checking binary for $platform
 
     while ! $CURL $BASE_URL$platform.exe > /dev/null; do
