@@ -9,6 +9,7 @@ BASE_URL=https://github.com/baransu/graphql_ppx/releases/download/$TRAVIS_TAG/gr
 
 mkdir -p bin
 
-for platform in linux-x64 darwin-x64 win-x64 win-x86; do
+#win-x64 win-x86 - disable windows for now
+for platform in linux-x64 darwin-x64; do
     (cd bin && curl -fOL $BASE_URL$platform.exe)
 done
