@@ -1,4 +1,5 @@
-module MyQuery = [%graphql {|
+module MyQuery = [%graphql
+  {|
   subscription {
     simpleSubscription {
       ...on Dog {
@@ -9,12 +10,27 @@ module MyQuery = [%graphql {|
       }
     }
   }
-|}];
+|}
+];
 
-Jest.(describe("Subscriptions", () => {
-  open Expect;
-  open! Expect.Operators;
+Jest.(
+  describe("Subscriptions", () => {
+    open Expect;
+    open! Expect.Operators;
 
-  test("Printed query is a subscription", () =>
-    expect(MyQuery.query |> Js.String.indexOf("subscription")) == 0);
-}));
+    test("Printed query is a subscription", () => {
+      let query = MyQuery.query;
+      Js.log(query);
+      expect(query |> Js.String.indexOf("subscription")) == 0;
+    });
+
+    test(
+      "Apollo mode should not have __typename on top subscription object", () => {
+      let typenameRegex = [%bs.re {|/__typename/g|}];
+      MyQuery.query
+      |> Js.String.match(typenameRegex)
+      |> Belt.Option.map(_, Array.length)
+      |> expect == Some(3);
+    });
+  })
+);
