@@ -41,7 +41,7 @@ let fmt_parse_err err =
   | Lexer_error err -> fmt_lex_err err
 
 let make_error_expr loc message =
-  let open Ast_402 in
+  let open Migrate_parsetree.Ast_402 in
   let ext = Ast_mapper.extension_of_error (Location.error ~loc message) in
   Ast_helper.Exp.extension ~loc ext
 
@@ -61,7 +61,7 @@ let drop_prefix prefix str =
   String.sub str len rest
 
 let rewrite_query loc delim query =
-  let open Ast_402 in
+  let open Migrate_parsetree.Ast_402 in
   let open Ast_helper in
   let open Parsetree in 
   let lexer = Graphql_lexer.make query in
@@ -95,7 +95,7 @@ let rewrite_query loc delim query =
         Output_bucklescript_module.generate_modules config parts
 
 let mapper argv =
-  let open Ast_402 in
+  let open Migrate_parsetree.Ast_402 in
   let open Ast_mapper in
   let open Parsetree in
   let open Asttypes in
@@ -146,7 +146,6 @@ let mapper argv =
   end in
 
   To_current.copy_mapper { default_mapper with module_expr }
-
 
 let () =
   Migrate_parsetree.Compiler_libs.Ast_mapper.register

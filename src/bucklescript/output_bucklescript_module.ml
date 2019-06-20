@@ -2,7 +2,7 @@ open Graphql_ppx_base
 open Result_structure
 open Generator_utils
 
-open Ast_402
+open Migrate_parsetree.Ast_402
 open Asttypes
 open Parsetree
 open Ast_helper
@@ -36,7 +36,7 @@ let ret_type_magic = [
 ]
 
 let emit_printed_query parts =
-  let open Ast_402 in
+  let open Migrate_parsetree.Ast_402 in
   let open Graphql_printer in
   let generate_expr acc = function
     | Empty -> acc
@@ -50,9 +50,9 @@ let emit_printed_query parts =
                                           (Exp.ident { Location.txt = Longident.parse "^"; loc = Location.none })
                                           [ "", acc; "", Exp.ident { Location.txt = Longident.parse (f ^ ".query"); loc = Location.none }])
   in
-  Array.fold_left generate_expr Ast_402.(Ast_helper.Exp.constant (Asttypes.Const_string ("", None))) parts
+  Array.fold_left generate_expr Migrate_parsetree.Ast_402.(Ast_helper.Exp.constant (Asttypes.Const_string ("", None))) parts
 
-let rec emit_json = Ast_402.(function
+let rec emit_json = Migrate_parsetree.Ast_402.(function
     | `Assoc vs -> 
       let pairs = Ast_helper.(Exp.array (vs |> List.map (fun (key, value) -> Exp.tuple [
           Exp.constant (Const_string (key, None));

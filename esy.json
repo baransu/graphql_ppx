@@ -1,32 +1,20 @@
 {
   "name": "graphql_ppx",
-  "version": "0.0.4",
+  "version": "0.3.7",
   "description": "GraphQL syntax extension for Bucklescript/ReasonML",
   "license": "BSD 3-clause",
   "esy": {
-    "build": [
-      [ "dune", "build", "@graphql_ppx" ]
-    ],
-    "install": [
-      "esy-installer"
-    ],
-    "buildsInSource": "_build"
+    "build": [["dune", "build", "-p", "graphql_ppx"]]
   },
   "dependencies": {
     "@opam/ocaml-migrate-parsetree": "*",
     "@opam/result": "*",
     "@opam/yojson": "*",
     "@opam/ppx_tools_versioned": "*",
-    "@opam/dune": "*"
+    "@opam/dune": "*",
+    "@opam/ppxlib": "0.5.0"
   },
   "scripts": {
-    "test": ["make", "test"]
-  },
-  "peerDependencies": {
-    "ocaml": " >= 4.2.1  < 4.7.0"
-  },
-  "devDependencies": {
-    "ocaml": "~4.2.3"
+    "test": "make test"
   }
 }
-

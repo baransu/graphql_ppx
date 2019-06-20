@@ -24,7 +24,10 @@ var argv = require("yargs")
   .help("?")
   .alias("?", "help")
   .example("$0 https://example.com/graphql", "Get GraphQL Schema")
-  .example(`$0 https://example.com/graphql --headers "Authorisation: <token>"`, "Get GraphQL Schema with Authorisation header").argv;
+  .example(
+    `$0 https://example.com/graphql --headers "Authorisation: <token>"`,
+    "Get GraphQL Schema with Authorisation header"
+  ).argv;
 
 var request = require("request");
 var fs = require("fs");
@@ -131,7 +134,11 @@ request.post(argv._[0], requestOptions, function(error, response, body) {
   }
 
   if (response.statusCode !== 200) {
-    console.error("Non-ok status code from API: ", response.statusCode, response.statusMessage);
+    console.error(
+      "Non-ok status code from API: ",
+      response.statusCode,
+      response.statusMessage
+    );
     process.exit(1);
   }
 

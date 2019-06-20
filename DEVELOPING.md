@@ -5,7 +5,6 @@ This is a different workflow than when consuming this ppx plugin for
 use in npm. It involves installing native opam packages as
 dependencies.
 
-
 ## Developing With `opam`
 
 OPAM is a package and environment manager for OCaml. To work on graphql_ppx
@@ -40,7 +39,6 @@ make test
 ```
 
 to run the tests.
-
 
 ## Developing With `esy`
 

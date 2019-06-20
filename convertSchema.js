@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-const graphqlTools = require('graphql-tools');
-const graphql = require('graphql');
-const fs = require('fs');
+const graphqlTools = require("graphql-tools");
+const graphql = require("graphql");
+const fs = require("fs");
 
 const argv = require("yargs")
-  .usage('Usage: $0 <schema>')
+  .usage("Usage: $0 <schema>")
   .command("schema", "Path to the schema file", { alias: "schema" })
   .required(1, "The schema file is required")
   .help("?")
@@ -100,9 +100,13 @@ query IntrospectionQuery {
     }
   }`;
 
-const typeDefs = fs.readFileSync(argv._[0], {encoding: 'utf-8'});
-const schema = graphqlTools.makeExecutableSchema({ typeDefs, resolverValidationOptions: { requireResolversForResolveType: false } });
+const typeDefs = fs.readFileSync(argv._[0], { encoding: "utf-8" });
+const schema = graphqlTools.makeExecutableSchema({
+  typeDefs,
+  resolverValidationOptions: { requireResolversForResolveType: false }
+});
 graphqlTools.addMockFunctionsToSchema({ schema });
 
-graphql.graphql(schema, introspectionQuery).then(result => 
-    process.stdout.write(JSON.stringify(result, null, '  ')));
+graphql
+  .graphql(schema, introspectionQuery)
+  .then(result => process.stdout.write(JSON.stringify(result, null, "  ")));

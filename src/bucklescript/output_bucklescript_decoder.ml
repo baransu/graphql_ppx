@@ -2,7 +2,7 @@ open Graphql_ppx_base
 open Result_structure
 open Schema
 
-open Ast_402
+open Migrate_parsetree.Ast_402
 open Asttypes
 open Parsetree
 

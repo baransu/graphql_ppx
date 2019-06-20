@@ -3,7 +3,7 @@ open Graphql_ast
 open Source_pos
 open Generator_utils
 
-open Ast_402
+open Migrate_parsetree.Ast_402
 open Parsetree
 open Asttypes
 

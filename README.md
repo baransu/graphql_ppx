@@ -31,9 +31,7 @@ Second, add the PPX to your `bsconfig.json`:
 
 ```json
 {
-    "ppx-flags": [
-        "graphql_ppx/ppx"
-    ]
+  "ppx-flags": ["graphql_ppx/ppx"]
 }
 ```
 
@@ -78,7 +76,6 @@ yarn send-introspection-query http://my-api.example.com/api
 npm run send-introspection-query http://my-api.example.com/api
 ```
 
-
 #### Custom schema name
 
 If you've already got a schema file downloaded for other purposes, you can tell
@@ -87,9 +84,7 @@ Note: no space around the equal sign!
 
 ```json
 {
-  "ppx-flags": [
-    "graphql_ppx/ppx\\ -schema=your_schema.json"
-  ]
+  "ppx-flags": ["graphql_ppx/ppx\\ -schema=your_schema.json"]
 }
 ```
 
@@ -102,7 +97,6 @@ problems with BuckleScript or Merlin.
 This plugin will generate a `.graphql_ppx_cache` folder alongside your JSON
 schema to optimize parsing performance for BuckleScript and Merlin. If you're
 using a version control system, you don't need to check it in.
-
 
 ### Send queries
 
@@ -199,30 +193,30 @@ let sendQuery = q =>
 
 # Features
 
-* Objects are converted into `Js.t` objects
-* Enums are converted into [polymorphic
+- Objects are converted into `Js.t` objects
+- Enums are converted into [polymorphic
   variants](https://realworldocaml.org/v1/en/html/variants.html)
-* Floats, ints, strings, booleans, id are converted into their corresponding native
+- Floats, ints, strings, booleans, id are converted into their corresponding native
   OCaml types.
-* Custom scalars are parsed as `Js.Json.t`
-* Arguments with input objects
-* Using `@skip` and `@include` will force non-optional fields to become
+- Custom scalars are parsed as `Js.Json.t`
+- Arguments with input objects
+- Using `@skip` and `@include` will force non-optional fields to become
   optional.
-* Unions are converted to polymorphic variants, with exhaustiveness checking.
+- Unions are converted to polymorphic variants, with exhaustiveness checking.
   This only works for object types, not for unions containing interfaces.
-* Interfaces are also converted into polymorphic variants. Overlapping interface
+- Interfaces are also converted into polymorphic variants. Overlapping interface
   selections and other more uncommon use cases are not yet supported.
-* Basic fragment support
+- Basic fragment support
 
 # Limitations
 
 While graphql_ppx covers a large portion of the GraphQL spec, there are still
 some unsupported areas:
 
-* Not all GraphQL validations are implemented. It will *not* validate argument
+- Not all GraphQL validations are implemented. It will _not_ validate argument
   types and do other sanity-checking of the queries. The fact that a query
   compiles does not mean that it will pass server-side validation.
-* Fragment support is limited and not 100% safe - because graphql_ppx only can
+- Fragment support is limited and not 100% safe - because graphql_ppx only can
   perform local reasoning on queries, you can construct queries with fragments
   that are invalid.
 
@@ -292,7 +286,7 @@ result. Using the `fn` argument, you can specify any function literal you want.
 ### Non-union variant conversion
 
 If you've got an object which in practice behave like a variant - like `signUp`
-above, where you *either* get a user *or* a list of errors - you can add a
+above, where you _either_ get a user _or_ a list of errors - you can add a
 `@bsVariant` directive to the field to turn it into a polymorphic variant:
 
 ```reason
@@ -378,9 +372,7 @@ To enable this, change your `bsconfig.json` to:
 
 ```json
 {
-    "ppx-flags": [
-        "graphql_ppx/ppx\\ -ast-out"
-    ]
+  "ppx-flags": ["graphql_ppx/ppx\\ -ast-out"]
 }
 ```
 

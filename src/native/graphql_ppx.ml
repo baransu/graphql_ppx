@@ -60,6 +60,7 @@ let drop_prefix prefix str =
   String.sub str len rest
 
 let () = Ppx_config.(set_config {
+    apollo_mode = false;
     verbose_logging = (match List.find ((=) "-verbose") argv with
         | _ -> true
         | exception Not_found -> false);
