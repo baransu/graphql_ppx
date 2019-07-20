@@ -6,7 +6,7 @@ TARGET_BUCKLESCRIPT?=$(shell echo `opam switch show` | grep -s 4.02.3)
 build:
 	$(DUNE) build src/bucklescript/graphql_ppx.exe
 	if [ "$(TARGET_BUCKLESCRIPT)" = "" ]; then $(DUNE) build src/native/graphql_ppx.a; fi
-	cp _build/default/src/bucklescript/graphql_ppx.exe .
+	if [ "$(TARGET_BUCKLESCRIPT)" != "" ]; then cp _build/default/src/bucklescript/graphql_ppx.exe .; fi
 
 # buildall:
 # 	$(DUNE) build --workspace=dune-workspace.dev-native src/native/graphql_ppx.a
