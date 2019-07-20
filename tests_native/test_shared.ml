@@ -1,12 +1,12 @@
 let yojson = (
   module struct
-    type t = Yojson.Basic.json
+    type t = Yojson.Basic.t
 
     let pp formatter t =
       Format.pp_print_text formatter (Yojson.Basic.pretty_to_string t)
 
     let equal = (=)
-  end : Alcotest.TESTABLE with type t = Yojson.Basic.json)
+  end : Alcotest.TESTABLE with type t = Yojson.Basic.t)
 
 let test_json a b = Alcotest.check yojson "JSON equality" a b
 

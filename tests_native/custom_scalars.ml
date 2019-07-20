@@ -9,7 +9,7 @@ module My_query = [%graphql {|
   }
 |}]
 
-type qt = < customScalarField : < nullable : Yojson.Basic.json option ; nonNullable : Yojson.Basic.json > >
+type qt = < customScalarField : < nullable : Yojson.Basic.t option ; nonNullable : Yojson.Basic.t > >
 
 let my_query = (
   module struct
