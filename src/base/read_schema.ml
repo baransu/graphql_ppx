@@ -243,7 +243,7 @@ let create_dir_if_not_exist abs_path =
 let ppx_cache_dir = ".graphql_ppx_cache/"
 
 let get_ppx_cache_path suffix relative_to = 
-  let dir = (Filename.dirname relative_to) in
+  let dir = some_or (Sys.getenv_opt "cur__target_dir")  (Filename.dirname relative_to) in
   let cache_dir_path = (Filename.concat dir ppx_cache_dir) in
   let () = create_dir_if_not_exist cache_dir_path in
   let name = ((Filename.basename relative_to)^suffix) in
